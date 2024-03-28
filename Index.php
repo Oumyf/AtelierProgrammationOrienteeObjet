@@ -119,3 +119,62 @@ $voiture1->klaxonner();
 
 $voiture1->setMarque("Ford");
 $voiture1->setCouleur("Rose Bonbon");
+
+class Moto extends Vehicule
+{
+    private $puissance;
+    protected $carburant;
+    private $boite_vitesse;
+
+
+    public function  __construct($puissance, $carburant, $boite_vitesse)
+    {
+        $this->puissance = $puissance;
+        $this->carburant = $carburant;
+        $this->boite_vitesse = $boite_vitesse;
+    }
+    /*Méthodes                
+    Affiche les informations sur une voiture*/
+    function afficher()
+    {
+        echo "La moto possède une puissance de ", $this->puissance, "kW", " fonctionne avec comme carburant ", $this->carburant, " et  une boite à vitesse ", $this->boite_vitesse, "<br>";
+    }
+    //Utilisation des getters et Setter pour la récupération et la modification des variables privated et protected
+    public function getPuissance()
+    {
+        return $this->puissance;
+    }
+    public function setPuissance($puissance)
+    {
+        $this->puissance = $puissance;
+    }
+
+
+    public function getCarburant()
+    {
+        return $this->carburant;
+    }
+    public function setCarburant($carburant)
+    {
+        $this->carburant = $carburant;
+    }
+
+
+    public function getBoite_vitesse()
+    {
+        return $this->boite_vitesse;
+    }
+    public function setBoite_vitesse($boite_vitesse)
+    {
+        return $this->boite_vitesse = $boite_vitesse;
+    }
+}
+
+
+
+
+$moto_electrique = new Moto(350, "Electrique", "Automatique");
+echo "<h2>Moteur électrique</h2><br>";
+$moto_electrique->afficher();
+
+
