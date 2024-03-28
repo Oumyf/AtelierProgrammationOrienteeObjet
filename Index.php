@@ -11,9 +11,10 @@ class Vehicule {
         $this->marque = $marque;
         $this->modele = $modele;
         $this->couleur = $couleur;
-        $this->kilometrage = $kilometrage;
         $this->annee = $annee;
+        $this->kilometrage = $kilometrage;
     }
+    //Création de la methode demarrer.
     function demarrer(){
         echo "Le véhicule démarre.<br>";
     }
@@ -23,19 +24,28 @@ class Vehicule {
 
 class Voiture extends Vehicule {
     public $nb_place;
-    // La méthode __call est une méthode magique PHP qui permet de gérer les appels à des méthodes qui ne sont pas définies dans notre classe
-     
+// Création  d'un constructeur pour la class voiture qui hérite des attributs et méthodes de la class vehicule mais ajoute un nouvel attribut.
 public function  __construct($marque, $modele, $couleur, $kilometrage, $annee, $nb_place) {
-    parent::__construct($marque,$modele,$couleur,$kilometrage,$annee);
+    parent::__construct($marque,$modele,$couleur,$annee,$kilometrage);
     $this->nb_place= $nb_place;
 } 
+//Ici  on affiche les differentes attribut de la voiture
      function Afficher () {
         echo "La voiture est une ".  $this->marque ." ".$this->modele." de couleur ". $this->couleur. "<br>";
         echo "Elle a été fabriquée en ".$this->annee." et elle a fait ". $this->kilometrage." km. $this->nb_place<br>";
     }
+
+       //définition d'une méthode klaxonner
+       function klaxonner()
+       {
+           echo "bip bip bippppppp";
+       }
 
 }
 $voiture1 = new Voiture("Ford", "Mustang", "Rouge Vif", 2023, 100, 5);
 
 //On appelle la méthode d'objet pour afficher les informations de la première voiture
 $voiture1->Afficher();
+$voiture1->demarrer();
+//appel de la méthode klaxonner
+$voiture1->klaxonner();
